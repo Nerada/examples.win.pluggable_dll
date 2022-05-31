@@ -15,9 +15,11 @@ namespace PluggableDll.PluggableApplication.Views
 
             DataContext = mainViewModel;
 
-            IPluginView? rightPlugin = pluginViews.SingleOrDefault(pv => pv.Location == PluginLocation.Right);
+            List<IPluginView> rightPlugins = pluginViews.Where(pv => pv.Location == PluginLocation.Right).ToList();
 
-            if (rightPlugin is UIElement rightPluginView)
+            if(rightPlugins.Count > 1) { MessageBox.Show($"Multiple plugins found for the right screen location. Make sure only one is available."); }
+
+            if(rightPlugins.Count == 1 && rightPlugins[0] is UIElement rightPluginView)
             {
                 _rightPluginLocation.Children.Add(rightPluginView);
             }

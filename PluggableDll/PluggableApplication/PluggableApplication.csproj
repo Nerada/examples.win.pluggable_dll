@@ -1,12 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <RuntimeIdentifier>win10-x64</RuntimeIdentifier>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <RootNamespace>PluggableDll.PluggableApplication</RootNamespace>
     <StartupObject>PluggableDll.PluggableApplication.App</StartupObject>
+    <BaseOutputPath>..\build</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>

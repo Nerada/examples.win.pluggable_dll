@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using PluggableDll.PluginA.ViewModels;
+using PluggableDll.PluginA.Views;
 using PluggableDll.PluginCore;
 
 namespace PluggableDll.PluginA.IOC
@@ -12,7 +8,11 @@ namespace PluggableDll.PluginA.IOC
     {
         public PluginACompositionRoot(PluginConstructorParameters parameters)
         {
+            PluginAMainViewModel pluginViewModel = new ();
+            PluginAMainView pluginView = new(pluginViewModel);
 
+            ViewModel = pluginViewModel;
+            View = pluginView;
         }
 
         public IPluginViewModel ViewModel { get; }

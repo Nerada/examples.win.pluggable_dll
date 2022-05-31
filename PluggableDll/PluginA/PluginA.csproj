@@ -1,10 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <RuntimeIdentifier>win10-x64</RuntimeIdentifier>
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <RootNamespace>PluggableDll.PluginA</RootNamespace>
+    <BaseOutputPath>..\build\</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>

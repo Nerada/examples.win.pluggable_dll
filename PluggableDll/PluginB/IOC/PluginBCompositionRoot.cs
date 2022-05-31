@@ -1,12 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PluggableDll.PluginB.ViewModels;
+using PluggableDll.PluginB.Views;
+using PluggableDll.PluginCore;
 
 namespace PluggableDll.PluginB.IOC
 {
-    internal class PluginBCompositionRoot
+    internal class PluginBCompositionRoot : IPluginRoot
     {
+        public PluginBCompositionRoot(PluginConstructorParameters parameters)
+        {
+            PluginBMainViewModel pluginViewModel = new ();
+            PluginBMainView pluginView = new(pluginViewModel);
+
+            ViewModel = pluginViewModel;
+            View = pluginView;
+        }
+
+        public IPluginViewModel ViewModel { get; }
+        public IPluginView View { get; }
     }
 }

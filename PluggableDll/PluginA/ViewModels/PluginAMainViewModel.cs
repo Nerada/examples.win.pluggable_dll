@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PluggableDll.PluginCore;
 
 namespace PluggableDll.PluginA.ViewModels
 {
-    public class PluginAMainViewModel
+    public class PluginAMainViewModel : IPluginViewModel
     {
+        public string PluginName => "Plugin A";
     }
 }

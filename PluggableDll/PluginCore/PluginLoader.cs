@@ -32,8 +32,7 @@ public class PluginLoader
 
             try
             {
-                var name = AssemblyName.GetAssemblyName(file.FullName);
-                assembly = Assembly.Load(name);
+                assembly = Assembly.LoadFrom(file.FullName);
             }
             catch { continue; }
 
