@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="PluggableDll.PluginB.Views.PluginBMainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PluggableDll.PluginB.Views"
+             xmlns:viewModels="clr-namespace:PluggableDll.PluginB.ViewModels"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance viewModels:PluginBMainViewModel}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="MediumSpringGreen" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <TextBlock Text="I am PluginB" />
+    </Grid>
+</UserControl>
