@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace PluggableDll.PluginCore;
 
 public class PluginLoader
 {
-    private readonly DirectoryInfo               _pluginPath;
     private readonly PluginConstructorParameters _pluginConstructorParameters;
+    private readonly DirectoryInfo               _pluginPath;
 
     public PluginLoader(PluginConstructorParameters pluginConstructorParameters)
     {
@@ -24,8 +20,6 @@ public class PluginLoader
     {
         List<IPluginRoot> pluginList = new();
 
-        var files = _pluginPath.GetFiles("*.dll");
-
         foreach (FileInfo file in _pluginPath.GetFiles("*.dll"))
         {
             Assembly assembly;
@@ -34,14 +28,20 @@ public class PluginLoader
             {
                 assembly = Assembly.LoadFrom(file.FullName);
             }
-            catch { continue; }
+            catch
+            {
+                continue;
+            }
 
             foreach (ConstructorInfo? constructor in assembly.GetTypes()
-                                                                .Where(t => t.IsClass && !t.IsAbstract && !t.IsGenericType && typeof(IPluginRoot).IsAssignableFrom(t))
-                                                                .Select(type => type.GetConstructor(BindingFlags.Public | BindingFlags.Instance, null, new[] { typeof(PluginConstructorParameters), }, null))
-                                                                .Where(constructor => constructor is { }))
+                                                             .Where(t => t.IsClass && !t.IsAbstract && !t.IsGenericType && typeof(IPluginRoot).IsAssignableFrom(t))
+                                                             .Select(type => type.GetConstructor(BindingFlags.Public | BindingFlags.Instance, null, new[] {typeof(PluginConstructorParameters)}, null))
+                                                             .Where(constructor => constructor is { }))
             {
-                if (constructor?.Invoke(new object[] { _pluginConstructorParameters, }) as IPluginRoot is not { } pluginRoot) continue;
+                if (constructor?.Invoke(new object[] {_pluginConstructorParameters}) as IPluginRoot is not { } pluginRoot)
+                {
+                    continue;
+                }
 
                 pluginList.Add(pluginRoot);
             }

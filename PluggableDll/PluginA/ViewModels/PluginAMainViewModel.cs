@@ -1,9 +1,8 @@
 ﻿using PluggableDll.PluginCore;
 
-namespace PluggableDll.PluginA.ViewModels
+namespace PluggableDll.PluginA.ViewModels;
+
+public class PluginAMainViewModel : IPluginViewModel
 {
-    public class PluginAMainViewModel : IPluginViewModel
-    {
-        public string PluginName => "Plugin A";
-    }
+    public string PluginName => "Plugin A";
 }

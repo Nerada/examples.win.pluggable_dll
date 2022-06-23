@@ -1,20 +1,19 @@
 ﻿using PluggableDll.PluginA.ViewModels;
 using PluggableDll.PluginCore;
 
-namespace PluggableDll.PluginA.Views
+namespace PluggableDll.PluginA.Views;
+
+/// <summary>
+///     Interaction logic for PluginAMainView.xaml
+/// </summary>
+public partial class PluginAMainView : IPluginView
 {
-    /// <summary>
-    /// Interaction logic for PluginAMainView.xaml
-    /// </summary>
-    public partial class PluginAMainView : IPluginView
+    public PluginAMainView(PluginAMainViewModel pluginAMainViewModel)
     {
-        public PluginAMainView(PluginAMainViewModel pluginAMainViewModel)
-        {
-            InitializeComponent();
+        InitializeComponent();
 
-            DataContext = pluginAMainViewModel;
-        }
-
-        public PluginLocation Location => PluginLocation.Right;
+        DataContext = pluginAMainViewModel;
     }
+
+    public PluginLocation Location => PluginLocation.Right;
 }
