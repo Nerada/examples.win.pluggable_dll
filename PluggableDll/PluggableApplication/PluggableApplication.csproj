@@ -3,6 +3,7 @@
   <PropertyGroup>
     <RuntimeIdentifier>win10-x64</RuntimeIdentifier>
     <OutputType>WinExe</OutputType>
+    <PublishSingleFile>true</PublishSingleFile>
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>

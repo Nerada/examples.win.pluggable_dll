@@ -7,6 +7,7 @@
     <Nullable>enable</Nullable>
     <RootNamespace>PluggableDll.PluginCore</RootNamespace>
     <BaseOutputPath>..\build</BaseOutputPath>
+    <IsPublishable>false</IsPublishable>
   </PropertyGroup>
 
 </Project>
