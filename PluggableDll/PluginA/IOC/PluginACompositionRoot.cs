@@ -1,9 +1,16 @@
-﻿using PluggableDll.PluginA.ViewModels;
+﻿// -----------------------------------------------
+//     Author: Ramon Bollen
+//      File: PluginA.PluginACompositionRoot.cs
+// Created on: 20220623
+// -----------------------------------------------
+
+using PluggableDll.PluginA.ViewModels;
 using PluggableDll.PluginA.Views;
 using PluggableDll.PluginCore;
 
 namespace PluggableDll.PluginA.IOC;
 
+// ReSharper disable once UnusedType.Global
 public class PluginACompositionRoot : IPluginRoot
 {
     // ReSharper disable once UnusedParameter.Local - WHY: Example of parameter passing to plugin
